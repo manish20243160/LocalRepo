@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Flower Garden</title>
+
+<style>
+
+body{
+    margin:0;
+    background:black;
+    overflow:hidden;
+    font-family:Arial;
+}
+
+.flower{
+    position:absolute;
+    font-size:35px;
+    animation:bloom 1.5s ease-out forwards;
+}
+
+@keyframes bloom{
+    from{
+        transform:scale(0);
+        opacity:0;
+    }
+    to{
+        transform:scale(1.5);
+        opacity:1;
+    }
+}
+
+.message{
+    position:fixed;
+    top:40%;
+    width:100%;
+    text-align:center;
+    font-size:50px;
+    color:pink;
+    font-weight:bold;
+    text-shadow:0 0 20px pink;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="message">❤️ I Love You Jerry ❤️</div>
+
+<script>
+
+const flowers=["🌸","🌼","🌺","🌻","🌷"];
+
+function growFlower(){
+
+    const flower=document.createElement("div");
+
+    flower.className="flower";
+
+    flower.innerText=flowers[Math.floor(Math.random()*flowers.length)];
+
+    flower.style.left=Math.random()*window.innerWidth+"px";
+
+    flower.style.top=Math.random()*window.innerHeight+"px";
+
+    document.body.appendChild(flower);
+}
+
+setInterval(growFlower,400);
+
+</script>
+
+</body>
+</html>
